@@ -1,12 +1,13 @@
 from django.shortcuts import render
 # Create your views here.
 from rest_framework import generics
-from .models import Unidade, Sala, Status, Bem from .serializers import (
+from .models import Unidade, Sala, Status, Bem 
+from .serializers import (
     UnidadeSerializer,
     SalaSerializer, 
     StatusSerializer, 
     BemSerializer
-)
+    )
 
 class UnidadeListCreate (generics.ListCreateAPIView):
     queryset = Unidade.objects.all()
@@ -18,4 +19,12 @@ class SalaListCreate (generics.ListCreateAPIView):
 
 class StatusListCreate (generics.ListCreateAPIView):
     queryset = Status.objects.all()
-    serializer_class = 
+    serializer_class = StatusSerializer
+
+class BemListCreate(generics.ListCreateAPIView):
+    queryset = Bem.objects.all()
+    serializer_class = BemSerializer
+
+class BemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bem.objects.all()
+    serializer_class = BemSerializer
