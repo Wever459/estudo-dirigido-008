@@ -1,0 +1,21 @@
+from django.shortcuts import render
+# Create your views here.
+from rest_framework import generics
+from .models import Unidade, Sala, Status, Bem from .serializers import (
+    UnidadeSerializer,
+    SalaSerializer, 
+    StatusSerializer, 
+    BemSerializer
+)
+
+class UnidadeListCreate (generics.ListCreateAPIView):
+    queryset = Unidade.objects.all()
+    serializer_class = UnidadeSerializer
+
+class SalaListCreate (generics.ListCreateAPIView):
+    queryset = Sala.objects.all()
+    serializer_class = SalaSerializer
+
+class StatusListCreate (generics.ListCreateAPIView):
+    queryset = Status.objects.all()
+    serializer_class = 
