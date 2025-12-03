@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Unidade, Sala, Status, Bem
 
 @admin.register (Unidade)
-class UnidadeAdmin (amin.ModelAdmin):
+class UnidadeAdmin (admin.ModelAdmin):
     list_display = ("id", "nome", "endereco")
     search_fields = ("nome",)
 
